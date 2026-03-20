@@ -11,6 +11,7 @@ import {
   Settings,
   LogOut,
   User,
+  Shield,
 } from "lucide-react";
 
 const navItems = [
@@ -96,6 +97,18 @@ export default function ProfilLayout({
                 </Link>
               );
             })}
+            {session?.user?.role === "ADMIN" && (
+              <>
+                <div className="my-2 border-t border-white/10" />
+                <Link
+                  href="/admin"
+                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium border-l-2 border-transparent text-brandRed hover:bg-brandRed/10 transition-colors"
+                >
+                  <Shield className="h-5 w-5" />
+                  Admin Panel
+                </Link>
+              </>
+            )}
           </nav>
         </aside>
 
