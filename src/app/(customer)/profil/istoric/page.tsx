@@ -39,15 +39,16 @@ export default async function IstoricPage() {
   // Calculate streak (consecutive days with at least one session)
   let streak = 0;
   if (reservations.length > 0) {
-    const uniqueDates = Array.from(
-      new Set(
+    const dateStrings: string[] = Array.from(
+      new Set<string>(
         reservations.map((r: { date: Date }) => {
           const d = new Date(r.date);
           return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
         })
       )
-    )
-      .map((s: string) => {
+    );
+    const uniqueDates = dateStrings
+      .map((s) => {
         const [y, m, d] = s.split("-").map(Number);
         return new Date(y, m, d);
       })
