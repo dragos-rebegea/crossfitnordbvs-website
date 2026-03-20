@@ -1,0 +1,186 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum PackageType {
+  SESSION
+  UNLIMITED
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  FROZEN
+  EXPIRED
+  CANCELLED
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  phone         String?
+  role          Role      @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts      Account[]
+  sessions      Session[]
+  reservations  Reservation[]
+  subscriptions Subscription[]
+}
+
+model Trainer {
+  id          String   @id @default(cuid())
+  name        String
+  bio         String?  @db.Text
+  image       String?
+  specialties String[]
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  classes Class[]
+}
+
+model Class {
+  id        String   @id @default(cuid())
+  name      String
+  dayOfWeek Int      // 0=Monday, 6=Sunday
+  startTime String   // "HH:mm" format
+  endTime   String   // "HH:mm" format
+  capacity  Int      @default(20)
+  trainerId String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  trainer      Trainer?      @relation(fields: [trainerId], references: [id])
+  reservations Reservation[]
+}
+
+model Reservation {
+  id        String   @id @default(cuid())
+  userId    String
+  classId   String
+  date      DateTime // The specific date of the class
+  attended  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  class Class @relation(fields: [classId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, classId, date])
+}
+
+model Package {
+  id          String      @id @default(cuid())
+  name        String
+  type        PackageType
+  sessions    Int?        // null for UNLIMITED
+  duration    Int         // days
+  price       Float
+  isPopular   Boolean     @default(false)
+  isActive    Boolean     @default(true)
+  order       Int         @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  subscriptions Subscription[]
+}
+
+model Subscription {
+  id           String             @id @default(cuid())
+  userId       String
+  packageId    String
+  status       SubscriptionStatus @default(ACTIVE)
+  sessionsLeft Int?
+  startDate    DateTime
+  endDate      DateTime
+  frozenAt     DateTime?
+  frozenDays   Int                @default(0)
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  package Package @relation(fields: [packageId], references: [id])
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  url       String
+  caption   String?
+  category  String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model NewsArticle {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  content     String    @db.Text
+  excerpt     String?
+  coverImage  String?
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model FeedbackMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String   @db.Text
+  rating    Int?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
