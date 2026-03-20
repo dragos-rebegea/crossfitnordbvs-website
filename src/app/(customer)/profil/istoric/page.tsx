@@ -47,7 +47,7 @@ export default async function IstoricPage() {
         })
       )
     )
-      .map((s) => {
+      .map((s: string) => {
         const [y, m, d] = s.split("-").map(Number);
         return new Date(y, m, d);
       })
