@@ -33,7 +33,7 @@ export default async function IstoricPage() {
   const now = new Date();
   const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
   const thisMonthSessions = reservations.filter(
-    (r) => new Date(r.date) >= startOfMonth
+    (r: { date: Date }) => new Date(r.date) >= startOfMonth
   ).length;
 
   // Calculate streak (consecutive days with at least one session)
@@ -41,7 +41,7 @@ export default async function IstoricPage() {
   if (reservations.length > 0) {
     const uniqueDates = Array.from(
       new Set(
-        reservations.map((r) => {
+        reservations.map((r: { date: Date }) => {
           const d = new Date(r.date);
           return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
         })
