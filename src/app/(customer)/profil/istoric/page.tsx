@@ -5,6 +5,18 @@ import { redirect } from "next/navigation";
 import { formatDate } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 
+interface ReservationWithClass {
+  id: string;
+  date: Date;
+  attended: boolean;
+  class: {
+    name: string;
+    startTime: string;
+    endTime: string;
+    trainer: { name: string } | null;
+  };
+}
+
 export const dynamic = "force-dynamic";
 
 export default async function IstoricPage() {
@@ -14,7 +26,7 @@ export default async function IstoricPage() {
     redirect("/login");
   }
 
-  const reservations = await prisma.reservation.findMany({
+  const reservations: ReservationWithClass[] = await prisma.reservation.findMany({
     where: {
       userId: session.user.id,
       attended: true,
