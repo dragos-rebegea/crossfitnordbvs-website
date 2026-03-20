@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -13,18 +13,42 @@ import {
 } from "@/components/ui/sheet";
 
 const navLinks = [
-  { label: "Acasa", anchor: "#acasa" },
+  { label: "Acasă", anchor: "#acasa" },
   { label: "Despre noi", anchor: "#despre-noi" },
   { label: "Echipa", anchor: "#echipa" },
-  { label: "Inscrie-te", anchor: "#membru" },
+  { label: "Înscrie-te", anchor: "#membru" },
   { label: "Pachete", anchor: "#oferte" },
   { label: "Contact", anchor: "#contact" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("#acasa");
   const pathname = usePathname();
   const isLanding = pathname === "/";
+
+  useEffect(() => {
+    if (!isLanding) return;
+
+    const sectionIds = ["acasa", "despre-noi", "echipa", "membru", "oferte", "contact"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        }
+      },
+      { threshold: 0.3, rootMargin: "-100px 0px 0px 0px" }
+    );
+
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+
+    return () => observer.disconnect();
+  }, [isLanding]);
 
   function getHref(anchor: string) {
     return isLanding ? anchor : `/${anchor}`;
@@ -45,11 +69,10 @@ export default function Header() {
         style={{
           maxWidth: "1450px",
           margin: "0 auto",
-          boxSizing: "border-box",
           display: "flex",
           alignItems: "center",
           minHeight: "12vh",
-          padding: "0 15px",
+          padding: "0 40px",
         }}
       >
         {/* Column 1 - Logo */}
@@ -84,41 +107,9 @@ export default function Header() {
             <Link
               key={link.anchor}
               href={getHref(link.anchor)}
-              className="group"
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "1.063rem",
-                fontWeight: 600,
-                textTransform: "uppercase",
-                color: "#FFFFFF",
-                textDecoration: "none",
-                position: "relative",
-                paddingBottom: "4px",
-                transition: "color 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#FB3C3C";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#FFFFFF";
-              }}
+              className={`nav-link${activeSection === link.anchor ? " nav-link-active" : ""}`}
             >
               {link.label}
-              <span
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "2px",
-                  backgroundColor: "#FB3C3C",
-                  transform: "scaleX(0)",
-                  transformOrigin: "center",
-                  transition: "transform 0.3s ease, opacity 0.3s ease",
-                  opacity: 0,
-                }}
-                className="group-hover:!scale-x-100 group-hover:!opacity-100"
-              />
             </Link>
           ))}
         </nav>
@@ -130,66 +121,14 @@ export default function Header() {
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "center",
+            gap: "20px",
           }}
           className="max-[1024px]:!hidden"
         >
-          <Link
-            href="/login"
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontSize: "1.063rem",
-              fontWeight: 600,
-              textTransform: "uppercase",
-              color: "#FFFFFF",
-              backgroundColor: "transparent",
-              border: "2px solid #FB3C3C",
-              borderRadius: "1px",
-              padding: "10px",
-              textDecoration: "none",
-              transition: "background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease",
-              whiteSpace: "nowrap",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#FB3C3C";
-              e.currentTarget.style.borderColor = "#FB3C3C";
-              e.currentTarget.style.color = "#FFFFFF";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.borderColor = "#FB3C3C";
-              e.currentTarget.style.color = "#FFFFFF";
-            }}
-          >
-            INTRA IN CONT
+          <Link href="/login" className="btn-header">
+            Intră in cont
           </Link>
-          <Link
-            href="/orar"
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontSize: "1.063rem",
-              fontWeight: 600,
-              textTransform: "uppercase",
-              color: "#FFFFFF",
-              backgroundColor: "transparent",
-              border: "2px solid #FB3C3C",
-              borderRadius: "1px",
-              padding: "10px",
-              textDecoration: "none",
-              marginLeft: "20px",
-              transition: "background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease",
-              whiteSpace: "nowrap",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#FB3C3C";
-              e.currentTarget.style.borderColor = "#FB3C3C";
-              e.currentTarget.style.color = "#FFFFFF";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.borderColor = "#FB3C3C";
-              e.currentTarget.style.color = "#FFFFFF";
-            }}
-          >
+          <Link href="/orar" className="btn-header">
             ORAR
           </Link>
         </div>
@@ -248,21 +187,7 @@ export default function Header() {
                       key={link.anchor}
                       href={getHref(link.anchor)}
                       onClick={() => setOpen(false)}
-                      style={{
-                        fontFamily: "var(--font-heading)",
-                        fontSize: "1.063rem",
-                        fontWeight: 600,
-                        textTransform: "uppercase",
-                        color: "#FFFFFF",
-                        textDecoration: "none",
-                        transition: "color 0.3s ease",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.color = "#FB3C3C";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.color = "#FFFFFF";
-                      }}
+                      className={`nav-link${activeSection === link.anchor ? " nav-link-active" : ""}`}
                     >
                       {link.label}
                     </Link>
@@ -281,52 +206,16 @@ export default function Header() {
                   <Link
                     href="/login"
                     onClick={() => setOpen(false)}
-                    style={{
-                      fontFamily: "var(--font-heading)",
-                      fontSize: "1.063rem",
-                      fontWeight: 600,
-                      textTransform: "uppercase",
-                      color: "#FFFFFF",
-                      backgroundColor: "transparent",
-                      border: "2px solid #FB3C3C",
-                      borderRadius: "1px",
-                      padding: "10px",
-                      textDecoration: "none",
-                      textAlign: "center",
-                      transition: "background-color 0.3s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#FB3C3C";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                    }}
+                    className="btn-header"
+                    style={{ textAlign: "center" }}
                   >
-                    INTRA IN CONT
+                    Intră in cont
                   </Link>
                   <Link
                     href="/orar"
                     onClick={() => setOpen(false)}
-                    style={{
-                      fontFamily: "var(--font-heading)",
-                      fontSize: "1.063rem",
-                      fontWeight: 600,
-                      textTransform: "uppercase",
-                      color: "#FFFFFF",
-                      backgroundColor: "transparent",
-                      border: "2px solid #FB3C3C",
-                      borderRadius: "1px",
-                      padding: "10px",
-                      textDecoration: "none",
-                      textAlign: "center",
-                      transition: "background-color 0.3s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#FB3C3C";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                    }}
+                    className="btn-header"
+                    style={{ textAlign: "center" }}
                   >
                     ORAR
                   </Link>

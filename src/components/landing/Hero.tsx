@@ -24,60 +24,58 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[1450px] mx-auto px-4">
+      <div className="relative z-10 w-full max-w-[1450px] mx-auto px-10">
         <div className="flex flex-col-reverse lg:flex-row items-center w-full">
           {/* Left column - Text content */}
-          <div className="w-full lg:w-1/2 py-4 pr-4 pl-4 lg:py-4 lg:pr-20 lg:pl-4">
+          <div className="w-full lg:w-[45%] py-4 pr-4 pl-4 lg:py-4 lg:pr-16 lg:pl-4">
             <Image
               src="/images/logo-footer.png"
               alt="CrossFit Nord BVS"
-              width={150}
-              height={50}
-              className="mb-6"
+              width={200}
+              height={87}
+              className="mb-8"
             />
 
-            <h6
-              className="font-body uppercase mb-4"
+            <h1
+              className="font-heading uppercase mb-6 text-white text-[2rem] md:text-[3.5rem] lg:text-[5.125rem]"
               style={{
-                color: "#E7B913",
-                fontSize: "1.063rem",
-                fontWeight: 500,
-                letterSpacing: "6px",
+                fontWeight: 700,
+                lineHeight: "1em",
               }}
             >
-              E MAI MULT DECAT UN SPORT
-            </h6>
+              E mai mult decât un sport
+            </h1>
 
             <p
-              className="font-body mb-8"
+              className="font-body mb-8 max-w-[600px]"
               style={{
                 color: "white",
                 fontSize: "1rem",
                 fontWeight: 400,
+                lineHeight: "1.6",
               }}
             >
-              Comunitate. Spirit de echipa. Energie. Cele mai bune antrenamente
-              din viata ta te asteapta. Indrazneste sa le descoperi!
+              Comunitate. Spirit de echipă. Energie. Dedicare. Pasiune pentru sport. Evoluție. Forță. Sănătate. Toate acestea și mai multe conținute într-un cuvânt: CrossFit. Indiferent de experiența în CrossFit sau de nivelul condiției tale fizice, ai ajuns în locul potrivit.
             </p>
 
             <Link href="/pachete" className="btn-outline-red">
-              Inscrie-te
+              Înscrie-te
             </Link>
           </div>
 
           {/* Right column */}
-          <div className="w-full lg:w-1/2 p-8">
+          <div className="w-full lg:w-[55%] p-8">
             <div className="flex flex-row">
               {/* Right > Left inner column (image) */}
               <AnimateOnScroll animation="fade-in-left" className="relative z-[1]">
                 <Image
                   src="/images/hero-girl.png"
                   alt="Hero"
-                  width={560}
-                  height={647}
+                  width={800}
+                  height={925}
                   style={{
                     transform: "scaleX(-1)",
-                    margin: "0% -1% -50% -30%",
+                    margin: "0% 0% -50% 0%",
                     filter:
                       "brightness(98%) contrast(100%) saturate(41%)",
                   }}
@@ -90,7 +88,8 @@ export default function Hero() {
                 style={{
                   background:
                     "linear-gradient(220deg, #FB3C3C 0%, #CE3030 100%)",
-                  padding: "1em",
+                  padding: "1.5em",
+                  minWidth: "380px",
                 }}
               >
                 {/* Texture overlay */}
@@ -113,8 +112,7 @@ export default function Hero() {
                     color: "#121212",
                   }}
                 >
-                  Forta. Putere. Echilibru. Agilitate. Flexibilitate.
-                  Anduranta.
+                  Forță.<br />Putere.<br />Echilibru.<br />Agilitate.<br />Flexibilitate.<br />Anduranță.
                 </h2>
               </div>
             </div>
