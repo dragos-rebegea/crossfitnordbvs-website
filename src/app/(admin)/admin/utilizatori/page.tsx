@@ -247,7 +247,7 @@ export default function UtilizatoriPage() {
 
             <button
               onClick={() => setSelectedUser(null)}
-              className="mt-6 w-full py-2.5 bg-gold hover:bg-goldHover text-black font-medium rounded-lg transition-colors text-sm"
+              className="mt-6 w-full py-2.5 bg-brandRed text-white hover:bg-brandRedDark font-medium rounded-lg transition-colors text-sm"
             >
               Inchide
             </button>

@@ -170,7 +170,7 @@ export default function AbonamentePage() {
         <h1 className="text-2xl font-bold text-[#E7B913]">Abonamente</h1>
         <Button
           onClick={() => setCreateOpen(true)}
-          className="bg-[#E7B913] text-black hover:bg-[#E7B913]/80"
+          className="bg-brandRed text-white hover:bg-brandRedDark"
         >
           <Plus className="mr-2 h-4 w-4" />
           Creează abonament
@@ -384,7 +384,7 @@ export default function AbonamentePage() {
                 !createForm.packageId ||
                 createMutation.isPending
               }
-              className="bg-[#E7B913] text-black hover:bg-[#E7B913]/80"
+              className="bg-brandRed text-white hover:bg-brandRedDark"
             >
               {createMutation.isPending ? "Se creează..." : "Creează"}
             </Button>
@@ -422,7 +422,7 @@ export default function AbonamentePage() {
             <Button
               onClick={handleSessionsSubmit}
               disabled={updateMutation.isPending}
-              className="bg-[#E7B913] text-black hover:bg-[#E7B913]/80"
+              className="bg-brandRed text-white hover:bg-brandRedDark"
             >
               {updateMutation.isPending ? "Se salvează..." : "Salvează"}
             </Button>
@@ -465,7 +465,7 @@ export default function AbonamentePage() {
             <Button
               onClick={handleStatusSubmit}
               disabled={updateMutation.isPending}
-              className="bg-[#E7B913] text-black hover:bg-[#E7B913]/80"
+              className="bg-brandRed text-white hover:bg-brandRedDark"
             >
               {updateMutation.isPending ? "Se salvează..." : "Salvează"}
             </Button>

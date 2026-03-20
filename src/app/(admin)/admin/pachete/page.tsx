@@ -150,7 +150,7 @@ export default function PachetePage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-[#E7B913]">Pachete</h1>
-        <Button onClick={openAdd} className="bg-[#E7B913] text-black hover:bg-[#E7B913]/80">
+        <Button onClick={openAdd} className="bg-brandRed text-white hover:bg-brandRedDark">
           <Plus className="mr-2 h-4 w-4" />
           Adaugă pachet
         </Button>
@@ -322,7 +322,7 @@ export default function PachetePage() {
             <Button
               onClick={handleSubmit}
               disabled={!form.name || isSaving}
-              className="bg-[#E7B913] text-black hover:bg-[#E7B913]/80"
+              className="bg-brandRed text-white hover:bg-brandRedDark"
             >
               {isSaving ? "Se salvează..." : "Salvează"}
             </Button>

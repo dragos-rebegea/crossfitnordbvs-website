@@ -63,7 +63,7 @@ export default function FeedbackForm() {
           type="text"
           required
           placeholder="Numele tau"
-          className="w-full rounded-lg border border-zinc-700 bg-darkBg px-4 py-3 text-sm text-white placeholder:text-grayText focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+          className="w-full rounded-lg border border-white/10 bg-cardBg px-4 py-3 text-sm text-white placeholder:text-grayText focus:border-brandRed focus:outline-none focus:ring-1 focus:ring-brandRed"
         />
       </div>
 
@@ -77,7 +77,7 @@ export default function FeedbackForm() {
           type="email"
           required
           placeholder="email@exemplu.ro"
-          className="w-full rounded-lg border border-zinc-700 bg-darkBg px-4 py-3 text-sm text-white placeholder:text-grayText focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+          className="w-full rounded-lg border border-white/10 bg-cardBg px-4 py-3 text-sm text-white placeholder:text-grayText focus:border-brandRed focus:outline-none focus:ring-1 focus:ring-brandRed"
         />
       </div>
 
@@ -118,14 +118,14 @@ export default function FeedbackForm() {
           required
           rows={5}
           placeholder="Spune-ne parerea ta..."
-          className="w-full resize-none rounded-lg border border-zinc-700 bg-darkBg px-4 py-3 text-sm text-white placeholder:text-grayText focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+          className="w-full resize-none rounded-lg border border-white/10 bg-cardBg px-4 py-3 text-sm text-white placeholder:text-grayText focus:border-brandRed focus:outline-none focus:ring-1 focus:ring-brandRed"
         />
       </div>
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-gold px-6 py-3 font-bold text-darkBg transition hover:bg-goldHover disabled:opacity-50"
+        className="w-full rounded-lg bg-brandRed px-6 py-3 font-bold text-white transition hover:bg-brandRedDark disabled:opacity-50"
       >
         {loading ? "SE TRIMITE..." : "TRIMITE FEEDBACK"}
       </button>

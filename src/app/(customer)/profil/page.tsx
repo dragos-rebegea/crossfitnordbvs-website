@@ -105,7 +105,7 @@ export default async function DashboardPage() {
           </p>
           <Link
             href="/pachete"
-            className="inline-block rounded-lg bg-gold px-6 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-goldHover"
+            className="inline-block rounded-lg bg-brandRed px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brandRedDark"
           >
             Vezi Pachete
           </Link>

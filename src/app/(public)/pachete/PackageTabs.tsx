@@ -53,7 +53,7 @@ function PackageCard({ pkg }: { pkg: PackageItem }) {
 
       <Link
         href="/login"
-        className="mt-6 block rounded bg-gold px-6 py-3 text-center font-bold text-darkBg transition hover:bg-goldHover"
+        className="mt-6 block rounded bg-brandRed px-6 py-3 text-center font-bold text-white transition hover:bg-brandRedDark"
       >
         ABONEAZA-TE
       </Link>
@@ -81,7 +81,7 @@ export default function PackageTabs({
             onClick={() => setActiveTab(tab.key)}
             className={`rounded-lg px-6 py-2.5 font-heading text-sm font-bold transition-colors ${
               activeTab === tab.key
-                ? "bg-gold text-darkBg"
+                ? "bg-brandRed text-white"
                 : "bg-cardBg text-grayText hover:text-white"
             }`}
           >

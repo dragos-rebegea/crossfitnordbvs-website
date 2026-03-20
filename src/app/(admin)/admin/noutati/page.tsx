@@ -137,7 +137,7 @@ export default function AdminNoutatiPage() {
         <h1 className="font-heading text-2xl font-bold text-gold">Noutati</h1>
         <button
           onClick={openNew}
-          className="rounded-lg bg-gold px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-goldHover"
+          className="rounded-lg bg-brandRed px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brandRedDark"
         >
           + Articol Nou
         </button>
@@ -295,7 +295,7 @@ export default function AdminNoutatiPage() {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="rounded-lg bg-gold px-6 py-2 text-sm font-semibold text-black transition-colors hover:bg-goldHover disabled:opacity-50"
+                className="rounded-lg bg-brandRed px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-brandRedDark disabled:opacity-50"
               >
                 {saving ? "Se salveaza..." : "Salveaza"}
               </button>

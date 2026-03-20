@@ -178,7 +178,7 @@ export default function SetariPage() {
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-gold"
+              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-brandRed"
               placeholder="Numele tau"
             />
           </div>
@@ -190,7 +190,7 @@ export default function SetariPage() {
               id="phone"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-gold"
+              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-brandRed"
               placeholder="07xxxxxxxx"
             />
           </div>
@@ -202,14 +202,14 @@ export default function SetariPage() {
               id="image"
               value={image}
               onChange={(e) => setImage(e.target.value)}
-              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-gold"
+              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-brandRed"
               placeholder="https://..."
             />
           </div>
           <Button
             type="submit"
             disabled={profileMutation.isPending}
-            className="bg-gold text-darkBg hover:bg-goldHover"
+            className="bg-brandRed text-white hover:bg-brandRedDark"
           >
             {profileMutation.isPending ? "Se salveaza..." : "Salveaza modificarile"}
           </Button>
@@ -229,7 +229,7 @@ export default function SetariPage() {
               type="password"
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
-              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-gold"
+              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-brandRed"
               required
             />
           </div>
@@ -242,7 +242,7 @@ export default function SetariPage() {
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-gold"
+              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-brandRed"
               required
               minLength={8}
             />
@@ -256,7 +256,7 @@ export default function SetariPage() {
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-gold"
+              className="mt-1 border-gray-700 bg-darkBg text-white focus:border-brandRed"
               required
               minLength={8}
             />
@@ -264,7 +264,7 @@ export default function SetariPage() {
           <Button
             type="submit"
             disabled={passwordMutation.isPending}
-            className="bg-gold text-darkBg hover:bg-goldHover"
+            className="bg-brandRed text-white hover:bg-brandRedDark"
           >
             {passwordMutation.isPending
               ? "Se schimba..."

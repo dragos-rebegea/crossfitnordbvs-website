@@ -136,7 +136,7 @@ export default function OrarPage() {
         <h1 className="text-2xl font-heading font-bold">Orar</h1>
         <button
           onClick={() => openAdd()}
-          className="flex items-center gap-2 px-4 py-2.5 bg-gold hover:bg-goldHover text-black font-medium rounded-lg transition-colors text-sm"
+          className="flex items-center gap-2 px-4 py-2.5 bg-brandRed text-white hover:bg-brandRedDark font-medium rounded-lg transition-colors text-sm"
         >
           <Plus size={16} />
           Adauga clasa
@@ -329,7 +329,7 @@ export default function OrarPage() {
               <button
                 type="submit"
                 disabled={saveMutation.isPending}
-                className="w-full py-2.5 bg-gold hover:bg-goldHover text-black font-medium rounded-lg transition-colors text-sm disabled:opacity-50"
+                className="w-full py-2.5 bg-brandRed text-white hover:bg-brandRedDark font-medium rounded-lg transition-colors text-sm disabled:opacity-50"
               >
                 {saveMutation.isPending
                   ? "Se salveaza..."

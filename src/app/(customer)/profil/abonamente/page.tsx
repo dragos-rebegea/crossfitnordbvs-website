@@ -32,7 +32,7 @@ const statusConfig: Record<
   Subscription["status"],
   { label: string; className: string }
 > = {
-  ACTIVE: { label: "Activ", className: "bg-gold text-darkBg" },
+  ACTIVE: { label: "Activ", className: "bg-green-500 text-white" },
   FROZEN: { label: "Inghetat", className: "bg-blue-500 text-white" },
   EXPIRED: { label: "Expirat", className: "bg-red-500 text-white" },
   CANCELLED: { label: "Anulat", className: "bg-gray-500 text-white" },
@@ -190,7 +190,7 @@ export default function AbonamentePage() {
             Nu ai un abonament activ in acest moment.
           </p>
           <Link href="/pachete">
-            <Button className="mt-4 bg-gold text-darkBg hover:bg-goldHover">
+            <Button className="mt-4 bg-brandRed text-white hover:bg-brandRedDark">
               Vezi pachetele disponibile
             </Button>
           </Link>

@@ -67,7 +67,7 @@ export default function AdminFeedbackPage() {
               onClick={() => setFilter(f)}
               className={`rounded-md px-3 py-1.5 text-sm transition ${
                 filter === f
-                  ? "bg-gold text-darkBg font-bold"
+                  ? "bg-brandRed text-white font-bold"
                   : "bg-cardBg text-grayText hover:text-white"
               }`}
             >
@@ -117,7 +117,7 @@ export default function AdminFeedbackPage() {
                       {!item.isRead && (
                         <button
                           onClick={() => markReadMutation.mutate(item.id)}
-                          className="rounded px-2 py-1 text-xs bg-gold/20 text-gold hover:bg-gold/30"
+                          className="rounded px-2 py-1 text-xs bg-brandRed/20 text-brandRed hover:bg-brandRed/30"
                         >
                           Citit
                         </button>
@@ -151,7 +151,7 @@ export default function AdminFeedbackPage() {
               {!selected.isRead && (
                 <button
                   onClick={() => { markReadMutation.mutate(selected.id); setSelected(null); }}
-                  className="rounded-md bg-gold px-4 py-2 font-bold text-darkBg hover:bg-goldHover transition"
+                  className="rounded-md bg-brandRed px-4 py-2 font-bold text-white hover:bg-brandRedDark transition"
                 >
                   Marcheaza ca citit
                 </button>

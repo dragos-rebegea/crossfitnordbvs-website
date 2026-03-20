@@ -71,7 +71,7 @@ export default function LoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-brandRed focus:outline-none focus:ring-1 focus:ring-brandRed"
               placeholder="email@exemplu.ro"
             />
           </div>
@@ -86,7 +86,7 @@ export default function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-brandRed focus:outline-none focus:ring-1 focus:ring-brandRed"
               placeholder="••••••••"
             />
           </div>
@@ -94,7 +94,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-md bg-gold py-3 font-bold text-darkBg transition hover:bg-goldHover disabled:opacity-50"
+            className="w-full rounded-md bg-brandRed py-3 font-bold text-white transition hover:bg-brandRedDark disabled:opacity-50"
           >
             {loading ? "Se conecteaza..." : "Conecteaza-te"}
           </button>

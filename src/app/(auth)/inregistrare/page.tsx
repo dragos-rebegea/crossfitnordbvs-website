@@ -107,7 +107,7 @@ export default function RegisterPage() {
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-brandRed focus:outline-none focus:ring-1 focus:ring-brandRed"
               placeholder="Ion Popescu"
             />
           </div>
@@ -123,7 +123,7 @@ export default function RegisterPage() {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-brandRed focus:outline-none focus:ring-1 focus:ring-brandRed"
               placeholder="email@exemplu.ro"
             />
           </div>
@@ -138,7 +138,7 @@ export default function RegisterPage() {
               type="tel"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-brandRed focus:outline-none focus:ring-1 focus:ring-brandRed"
               placeholder="07XX XXX XXX"
             />
           </div>
@@ -154,7 +154,7 @@ export default function RegisterPage() {
               required
               value={formData.password}
               onChange={handleChange}
-              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-brandRed focus:outline-none focus:ring-1 focus:ring-brandRed"
               placeholder="Minim 8 caractere"
             />
           </div>
@@ -170,7 +170,7 @@ export default function RegisterPage() {
               required
               value={formData.confirmPassword}
               onChange={handleChange}
-              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+              className="w-full rounded-md border border-white/10 bg-cardBg px-4 py-3 text-white placeholder-grayText focus:border-brandRed focus:outline-none focus:ring-1 focus:ring-brandRed"
               placeholder="Repeta parola"
             />
           </div>
@@ -178,7 +178,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-md bg-gold py-3 font-bold text-darkBg transition hover:bg-goldHover disabled:opacity-50"
+            className="w-full rounded-md bg-brandRed py-3 font-bold text-white transition hover:bg-brandRedDark disabled:opacity-50"
           >
             {loading ? "Se creeaza contul..." : "Creeaza cont"}
           </button>

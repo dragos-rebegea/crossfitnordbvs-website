@@ -189,7 +189,7 @@ export default function RezervariPage() {
         {!showNewFlow && (
           <button
             onClick={() => setShowNewFlow(true)}
-            className="flex items-center gap-2 rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-goldHover"
+            className="flex items-center gap-2 rounded-lg bg-brandRed px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brandRedDark"
           >
             <Plus className="h-4 w-4" />
             Rezervare Noua
@@ -373,7 +373,7 @@ export default function RezervariPage() {
                     })
                   }
                   disabled={createMutation.isPending}
-                  className="mt-4 w-full rounded-lg bg-gold py-2.5 text-sm font-semibold text-black transition-colors hover:bg-goldHover disabled:opacity-50"
+                  className="mt-4 w-full rounded-lg bg-brandRed py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brandRedDark disabled:opacity-50"
                 >
                   {createMutation.isPending
                     ? "Se proceseaza..."
@@ -391,7 +391,7 @@ export default function RezervariPage() {
           onClick={() => setActiveTab("upcoming")}
           className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
             activeTab === "upcoming"
-              ? "bg-gold text-black"
+              ? "bg-brandRed text-white"
               : "text-grayText hover:text-white"
           }`}
         >
@@ -401,7 +401,7 @@ export default function RezervariPage() {
           onClick={() => setActiveTab("past")}
           className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
             activeTab === "past"
-              ? "bg-gold text-black"
+              ? "bg-brandRed text-white"
               : "text-grayText hover:text-white"
           }`}
         >

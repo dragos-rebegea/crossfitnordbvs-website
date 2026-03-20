@@ -77,7 +77,7 @@ export default function ScheduleGrid({ classes }: ScheduleGridProps) {
               onClick={() => setActiveDay(i)}
               className={`shrink-0 rounded-lg px-4 py-2 text-sm font-heading font-bold transition-colors ${
                 activeDay === i
-                  ? "bg-gold text-darkBg"
+                  ? "bg-brandRed text-white"
                   : "bg-cardBg text-grayText hover:text-white"
               }`}
             >

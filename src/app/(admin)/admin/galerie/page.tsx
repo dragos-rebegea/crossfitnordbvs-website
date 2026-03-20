@@ -156,7 +156,7 @@ export default function AdminGaleriePage() {
           />
           <button
             onClick={handleBulkAdd}
-            className="rounded-lg bg-gold px-6 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-goldHover"
+            className="rounded-lg bg-brandRed px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brandRedDark"
           >
             Adauga
           </button>
@@ -215,7 +215,7 @@ export default function AdminGaleriePage() {
                   <div className="flex gap-2">
                     <button
                       onClick={handleSaveEdit}
-                      className="rounded-lg bg-gold px-4 py-1.5 text-xs font-semibold text-black transition-colors hover:bg-goldHover"
+                      className="rounded-lg bg-brandRed px-4 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-brandRedDark"
                     >
                       Salveaza
                     </button>
